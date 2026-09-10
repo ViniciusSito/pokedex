@@ -7,6 +7,7 @@
 
     <!-- Global CSS -->
     <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/pokedex.css">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,43 +16,24 @@
 </head>
 
 <body>
-
     <section class="content">
         <h1>Pokedex</h1>
-        <ol class="pokemon-list">
-            <li>Bulbasaur
-                <img src="https://img.pokemondb.net/sprites/black-white/normal/bulbasaur.png" alt="Bulbasaur">
-            </li>
-            <li>Ivysaur
-                <img src="https://img.pokemondb.net/sprites/black-white/normal/ivysaur.png" alt="Ivysaur">
-            </li>
-            <li>Venusaur
-                <img src="https://img.pokemondb.net/sprites/black-white/normal/venusaur.png" alt="Venusaur">
-            </li>
-            <li>Charmander
-                <img src="https://img.pokemondb.net/sprites/black-white/normal/charmander.png" alt="Charmander">
-            </li>
-            <li>Charmeleon
-                <img src="https://img.pokemondb.net/sprites/black-white/normal/charmeleon.png" alt="Charmeleon">
-            </li>
-            <li>Charizard
-                <img src="https://img.pokemondb.net/sprites/black-white/normal/charizard.png" alt="Charizard">
-            </li>
-            <li>Squirtle
-                <img src="https://img.pokemondb.net/sprites/black-white/normal/squirtle.png" alt="Squirtle">
-            </li>
-            <li>Wartortle
-                <img src="https://img.pokemondb.net/sprites/black-white/normal/wartortle.png" alt="Wartortle">
-            </li>
-            <li>Blastoise
-                <img src="https://img.pokemondb.net/sprites/black-white/normal/blastoise.png" alt="Blastoise">
-            </li>
-            <li>Caterpie
-                <img src="https://img.pokemondb.net/sprites/black-white/normal/caterpie.png" alt="Caterpie">
+
+        <ol class="pokemons">
+            <li class="pokemon">
+                <span class="number">#001</span>
+                <span class="name">Bulbasaur</span>
+
+                <div class="detail">
+                    <ol class="types">
+                        <li class="type">Grass</li>
+                        <li class="type">Poison</li>
+                    </ol>
+                    <img src="https://img.pokemondb.net/sprites/black-white/normal/bulbasaur.png" alt="Bulbasaur">
+                </div>
             </li>
         </ol>
     </section>
-
     <!-- Main JavaScript -->
     <script src="assets/js/main.js"></script>
 </body>
