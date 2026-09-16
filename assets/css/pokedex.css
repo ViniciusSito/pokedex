@@ -1,7 +1,7 @@
 .pokemons {
     display: grid;
-    /* Base mobile: coluna unica. As colunas extras entram nos media queries
-       abaixo, seguindo mobile-first. */
+    /* Um pokemon por linha em qualquer largura de tela: o card vira um "banner"
+       horizontal, com os tipos a esquerda e a arte a direita. */
     grid-template-columns: 1fr;
     list-style: none;
     margin: 0;
@@ -36,6 +36,8 @@
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+    /* Garante que a arte do pokemon nunca escape do cantinho arredondado */
+    overflow: hidden;
 }
 
 .pokemon .name {
@@ -63,12 +65,23 @@
     padding: 0;
     margin: 0;
     list-style: none;
+    /* Sem isso a lista de tipos se recusa a encolher e empurra a imagem
+       para fora do card em nomes longos (ex.: "fighting"). */
+    min-width: 0;
 }
 
 .pokemon .detail img {
     border-style: none;
-    max-width: 100%;
-    height: 98px;
+    /* A arte ocupa metade do card e cresce um pouco com a tela, mas com piso e
+       teto para nao sumir no mobile nem estourar no desktop. */
+    width: 50%;
+    height: clamp(96px, 16vw, 144px);
+    /* contain encaixa a arte inteira na caixa sem distorcer nem cortar.
+       Antes, com max-width: 100% + altura fixa, a imagem vazava do padding. */
+    object-fit: contain;
+    object-position: center right;
+    /* Impede que o flex esprema a imagem quando os tipos ocupam muito espaco */
+    flex-shrink: 0;
 }
 
 .pokemon .detail .types .type {
@@ -102,20 +115,12 @@
     cursor: pointer;
 }
 
-@media screen and (min-width: 380px) {
-    .pokemons {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
+/* Em telas maiores o card ficaria largo demais e a arte muito distante do nome,
+   entao limitamos a largura da lista e a centralizamos. As colunas continuam
+   sendo uma so, conforme o layout de um pokemon por linha. */
 @media screen and (min-width: 576px) {
     .pokemons {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
-@media screen and (min-width: 992px) {
-    .pokemons {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        max-width: 520px;
+        margin: 0 auto;
     }
 }
