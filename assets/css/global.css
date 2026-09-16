@@ -5,21 +5,25 @@
 
 body {
     background-color: #f6f8fc;
+    margin: 0;
 }
 
 .content {
     padding: 1rem;
     background-color: #fff;
-    height: 100vh;
-    width: 100vw;
+    /* min-height em vez de height: o cartao branco precisa crescer conforme
+       novos pokemons entram na lista, senao a lista "vaza" do fundo branco. */
+    min-height: 100vh;
+    /* width: 100% em vez de 100vw: 100vw ignora a barra de rolagem vertical
+       e gera scroll horizontal indesejado no desktop. */
+    width: 100%;
 }
 
-
-@media screen and (min-width:992px ){
-	.content {
-		max-width: 992px;
-        height: auto;
+@media screen and (min-width: 992px) {
+    .content {
+        max-width: 992px;
+        min-height: auto;
         margin: 1rem auto;
         border-radius: 1rem;
-	}
+    }
 }
